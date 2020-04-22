@@ -38,5 +38,4 @@ setup(
     description='Summernote plugin for Django',
     classifiers=CLASSIFIERS,
 
-    install_requires=['django', 'bleach'],
 )
