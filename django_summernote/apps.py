@@ -35,6 +35,8 @@ class DjangoSummernoteConfig(AppConfig):
             'attachment_require_authentication': False,
             'attachment_model': 'django_summernote.Attachment',
             'attachment_absolute_uri': False,
+            'attachment_s3_backend': False,
+            'attachment_s3_url': '',
 
             # additional test_func, for example you want to check if user is in specific group:
             # https://docs.djangoproject.com/en/2.2/topics/auth/default/#django.contrib.auth.mixins.UserPassesTestMixin

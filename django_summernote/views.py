@@ -142,12 +142,15 @@ class SummernoteUploadAttachment(UserPassesTestMixin, View):
 
                 # calling save method with attachment parameters as kwargs
                 attachment.save(**kwargs)
-
+                
                 # choose relative/absolute url by config
                 attachment.url = attachment.file.url
 
                 if config['attachment_absolute_uri']:
                     attachment.url = request.build_absolute_uri(attachment.url)
+
+                if config['attachment_s3_backend']:
+                    attachment.url = config['attachment_s3_url'] + '/'.join(attachment.file.url.rsplit('/',3)[1:])
 
                 attachments.append(attachment)
 
